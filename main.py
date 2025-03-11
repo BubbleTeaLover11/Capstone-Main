@@ -15,8 +15,8 @@ load_dotenv()
 app = Flask(__name__)
 # Initialize CORS (Cross-Origin Resource Sharing) for React frontend
 CORS(app)
-USER = os.environ.get('MONGO_USER')
-PASSWORD = os.environ.get('PASSWORD')
+USER = os.environ.get('MONGO_USER').strip("\"")
+PASSWORD = os.environ.get('PASSWORD').strip("\"")
 uri = (
     f"mongodb+srv://{USER}:{PASSWORD}@capstone.fw3b6.mongodb.net/?"
     "retryWrites=true&w=majority&appName=Capstone"
