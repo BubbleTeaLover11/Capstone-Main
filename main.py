@@ -27,6 +27,14 @@ openaiclient = OpenAI(
 )
 
 
+@app.route("/debug-env")
+def debug_env():
+    return {
+        "MONGO_USER": os.getenv("MONGO_USER"),
+        "PASSWORD": os.getenv("PASSWORD")
+    }
+
+
 def general_request(request: object, collection: object) -> None:
 
     if request.method == 'POST':
